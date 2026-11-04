@@ -27,10 +27,11 @@
   --detail: #a8431f;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+html { font-size: 110%; scroll-behavior: smooth; scroll-padding-top: 78px; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Manrope', 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; transition: background-color .25s, color .25s; }
 body, button, a { font-family: 'Manrope', 'Segoe UI', sans-serif; }
 ::selection { background: color-mix(in srgb, var(--accent) 35%, transparent); }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+@media (max-width: 680px) { html { font-size: 106.25%; } }
