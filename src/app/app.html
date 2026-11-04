@@ -1,13 +1,18 @@
 <header class="site-header">
   <nav class="nav shell" aria-label="Navegação principal">
     <a class="brand" href="#inicio" (click)="closeMenu('inicio')" aria-label="Carlos Ryan, início">CR<span>.</span></a>
-    <button class="menu-toggle" type="button" [attr.aria-expanded]="menuOpen" aria-controls="nav-links" aria-label="Alternar menu" (click)="menuOpen = !menuOpen">
-      <span></span><span></span><span></span>
-    </button>
     <div class="nav-links" id="nav-links" [class.open]="menuOpen">
       @for (item of navItems; track item.id) {
         <a [href]="'#' + item.id" [class.active]="activeSection === item.id" (click)="closeMenu(item.id)">{{ item.label }}</a>
       }
+    </div>
+    <div class="nav-controls">
+      <button class="theme-toggle" type="button" [attr.aria-label]="theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'" [attr.aria-pressed]="theme === 'light'" (click)="toggleTheme()">
+        <span aria-hidden="true">{{ theme === 'dark' ? '☼' : '◐' }}</span>{{ theme === 'dark' ? 'Claro' : 'Escuro' }}
+      </button>
+      <button class="menu-toggle" type="button" [attr.aria-expanded]="menuOpen" aria-controls="nav-links" aria-label="Alternar menu" (click)="menuOpen = !menuOpen">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 </header>

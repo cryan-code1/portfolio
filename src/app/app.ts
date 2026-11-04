@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostBinding, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { skills } from './data/skills';
 import { projects } from './data/projects';
@@ -10,6 +10,7 @@ export class AppComponent {
   readonly projects = projects;
   readonly education = education;
   readonly currentYear = new Date().getFullYear();
+  theme: 'dark' | 'light' = this.readStoredTheme();
   readonly navItems = [
     { id: 'inicio', label: 'Início' }, { id: 'sobre', label: 'Sobre' }, { id: 'formacao', label: 'Formação' },
     { id: 'tecnologias', label: 'Tecnologias' },
@@ -17,6 +18,8 @@ export class AppComponent {
   ];
   menuOpen = false;
   activeSection = 'inicio';
+
+  @HostBinding('attr.data-theme') get themeAttribute(): 'dark' | 'light' { return this.theme; }
 
   get skillCategories(): string[] { return [...new Set(this.skills.map(skill => skill.category))]; }
 
@@ -30,4 +33,14 @@ export class AppComponent {
   }
 
   closeMenu(id: string): void { this.menuOpen = false; this.activeSection = id; }
+
+  toggleTheme(): void {
+    this.theme = this.theme === 'dark' ? 'light' : 'dark';
+    if (typeof window !== 'undefined') window.localStorage.setItem('portfolio-theme', this.theme);
+  }
+
+  private readStoredTheme(): 'dark' | 'light' {
+    if (typeof window === 'undefined') return 'dark';
+    return window.localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark';
+  }
 }
