@@ -2,19 +2,18 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { skills } from './data/skills';
 import { projects } from './data/projects';
-import { courses } from './data/courses';
 import { education } from './data/education';
 
 @Component({ selector: 'app-root', standalone: true, imports: [CommonModule], templateUrl: './app.html', styleUrl: './app.scss' })
 export class AppComponent {
   readonly skills = skills;
   readonly projects = projects;
-  readonly courses = courses;
   readonly education = education;
   readonly currentYear = new Date().getFullYear();
   readonly navItems = [
-    { id: 'inicio', label: 'Início' }, { id: 'sobre', label: 'Sobre' }, { id: 'tecnologias', label: 'Tecnologias' },
-    { id: 'projetos', label: 'Projetos' }, { id: 'formacao', label: 'Formação' }, { id: 'contato', label: 'Contato' }
+    { id: 'inicio', label: 'Início' }, { id: 'sobre', label: 'Sobre' }, { id: 'formacao', label: 'Formação' },
+    { id: 'tecnologias', label: 'Tecnologias' },
+    { id: 'projetos', label: 'Projetos' }, { id: 'contato', label: 'Contato' }
   ];
   menuOpen = false;
   activeSection = 'inicio';
