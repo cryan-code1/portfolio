@@ -86,3 +86,5 @@ h1,h2,h3,p { margin-top: 0; }.hero h1 { position: relative; z-index: 1; margin: 
 .contact-panel .contact-weather { width: auto; margin: 0; font-size: .58rem; text-align: right; }
 @media (max-width: 850px) { .contact-panel .location-details { grid-column: 2; grid-row: 1 / span 3; }.contact-panel .contact-weather { white-space: normal; } }
 @media (max-width: 680px) { .contact-panel .location-details { grid-column: 1; grid-row: auto; justify-items: start; }.contact-panel .contact-weather { text-align: left; } }
+#tecnologias.section { min-height: calc(100svh - 72px); display: flex; flex-direction: column; justify-content: center; padding-block: 56px; }
+@media (max-width: 680px) { #tecnologias.section { min-height: auto; display: block; padding-block: 76px; } }

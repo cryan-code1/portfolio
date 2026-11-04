@@ -66,9 +66,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
     const section = document.getElementById(id);
     if (!section) return;
-    const target = section;
+    const footer = id === 'contato' ? document.querySelector<HTMLElement>('.footer') : null;
     const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 72;
-    const top = window.scrollY + target.getBoundingClientRect().top - headerHeight;
+    const top = footer
+      ? window.scrollY + footer.getBoundingClientRect().bottom - window.innerHeight
+      : window.scrollY + section.getBoundingClientRect().top - headerHeight;
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
 
     if (this.scrollSettleHandle !== undefined) window.clearTimeout(this.scrollSettleHandle);
