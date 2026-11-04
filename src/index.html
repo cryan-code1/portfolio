@@ -2,11 +2,24 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
+  <script>
+    (() => {
+      const root = document.documentElement;
+      let storedTheme;
+      try { storedTheme = localStorage.getItem('portfolio-theme'); } catch { /* Storage can be unavailable. */ }
+      const systemHasTheme = typeof window.matchMedia === 'function';
+      const prefersDark = systemHasTheme && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = storedTheme === 'light' || storedTheme === 'dark'
+        ? storedTheme
+        : (systemHasTheme ? (prefersDark ? 'dark' : 'light') : 'dark');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'light' ? '#f3e8d2' : '#1a1512');
+    })();
+  </script>
   <title>Carlos Ryan | Desenvolvedor de Software Web</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfólio profissional de Carlos Ryan, desenvolvedor FullStack com experiência em C# e .NET.">
-  <meta name="theme-color" content="#10151e">
+  <meta name="theme-color" content="#1a1512">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Carlos Ryan | Desenvolvedor de Software Web">

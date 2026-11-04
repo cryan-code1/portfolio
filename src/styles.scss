@@ -1,21 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Rubik+Dirt&display=swap');
 :root {
   color-scheme: dark;
-  --bg: #111111;
-  --surface: #191919;
-  --card: #202020;
-  --blue: #6b91d6;
-  --text: #f2f0eb;
-  --muted: #929292;
-  --border: #333333;
+  --bg: #1a1512;
+  --bg-alt: #211a16;
+  --text: #f2ebdd;
+  --text-muted: #9a8f82;
+  --line: #3a302a;
+  --accent: #d9a441;
+  --detail: #c8643b;
   --shell: 1160px;
   --space-section: 120px;
+
+  --surface: var(--bg-alt);
+  --card: var(--bg-alt);
+  --muted: var(--text-muted);
+  --border: var(--line);
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f3e8d2;
+  --bg-alt: #eadbbf;
+  --text: #2a1f18;
+  --text-muted: #6e5f50;
+  --line: #d2c2a4;
+  --accent: #8f5f0e;
+  --detail: #a8431f;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 78px; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Manrope', 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Manrope', 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; transition: background-color .25s, color .25s; }
 body, button, a { font-family: 'Manrope', 'Segoe UI', sans-serif; }
-::selection { background: rgba(107,145,214,.32); }
+::selection { background: color-mix(in srgb, var(--accent) 35%, transparent); }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

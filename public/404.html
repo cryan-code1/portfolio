@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a1512">
+  <title>Página não encontrada | Carlos Ryan</title>
+  <script>
+    (() => {
+      let theme = null;
+      try { theme = localStorage.getItem('portfolio-theme'); } catch {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Rubik+Dirt&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --bg:#1a1512; --text:#f2ebdd; --muted:#9a8f82; --line:#3a302a; --accent:#d9a441; --detail:#c8643b; }
+    :root[data-theme='light'] { color-scheme:light; --bg:#f3e8d2; --text:#2a1f18; --muted:#6e5f50; --line:#d2c2a4; --accent:#8f5f0e; --detail:#a8431f; }
+    * { box-sizing:border-box; }
+    body { min-height:100vh; margin:0; display:grid; place-items:center; padding:24px; background:var(--bg); color:var(--text); font-family:Manrope,'Segoe UI',sans-serif; transition:background-color .25s,color .25s; }
+    main { width:min(100%,760px); padding-block:72px; border-block:1px solid var(--line); }
+    .eyebrow { color:var(--accent); font:500 .68rem 'DM Mono',monospace; letter-spacing:.12em; }
+    h1 { margin:20px 0; font-size:clamp(3.4rem,11vw,7rem); line-height:.98; letter-spacing:-.08em; }
+    .xilo { color:var(--detail); font-family:'Rubik Dirt',Manrope,sans-serif; font-weight:400; letter-spacing:-.02em; }
+    p { color:var(--muted); font-size:1rem; }
+    a { display:inline-flex; gap:12px; align-items:center; margin-top:20px; color:var(--text); font-size:.82rem; font-weight:700; text-decoration:none; }
+    a span { color:var(--accent); }
+    a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">404 / CAMINHO NÃO ENCONTRADO</p>
+    <h1><span class="xilo">Eita!</span> Essa página<br>não existe.</h1>
+    <p>Mas a casa continua de pé.</p>
+    <a href="/"><span aria-hidden="true">←</span> Voltar pro início</a>
+  </main>
+</body>
+</html>

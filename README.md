@@ -1,6 +1,8 @@
 # Portfólio Carlos Ryan
 
-Aplicação de página única construída com Angular standalone, TypeScript e SCSS. O portfólio apresenta a experiência e os estudos informados na especificação do projeto. Projetos, cursos e fotografia permanecem vazios até que dados/arquivos reais sejam fornecidos.
+Aplicação de página única construída com Angular standalone, TypeScript e SCSS. O portfólio apresenta somente dados pessoais e estudos confirmados. A seção de cursos segue oculta enquanto não houver itens para exibir; quando houver cursos ou certificações, a preferência atual é adicioná-los junto à formação. Angular aparece como estudo em andamento.
+
+A identidade visual “Sertão” oferece tema escuro e claro, com preferência salva no navegador e respeito à preferência do sistema. A página exibe o horário de Crateús e tenta obter a temperatura atual via Open-Meteo; quando a rede ou o serviço não responde, o horário continua disponível sem mensagem de erro.
 
 ## Tecnologias
 
@@ -31,10 +33,12 @@ src/app/
 public/       # favicon e imagens locais
 ```
 
+O arquivo `public/404.html` contém a página de erro com a mesma identidade visual. Configure o serviço de hospedagem para servir esse arquivo como resposta de status HTTP 404 ao receber uma rota inexistente; o fallback padrão de uma SPA pode responder com status 200 se a hospedagem não for ajustada.
+
 ## Atualização do conteúdo
 
 - **Projetos:** adicione registros tipados em `src/app/data/projects.ts`. Cada projeto aceita `id`, `title`, `description`, `image`, `technologies`, `status` e, opcionalmente, `githubUrl`, `demoUrl` e `featured`. Imagens podem ser guardadas em `public/images/projects/`.
-- **Cursos:** adicione dados confirmados em `src/app/data/courses.ts`. Instituição é obrigatória no modelo; descrição, data, carga horária e certificado são opcionais.
+- **Cursos/certificações:** ainda não são exibidos. Quando houver registros confirmados, inclua-os junto à formação conforme a preferência atual de conteúdo.
 - **Tecnologias:** atualize `src/app/data/skills.ts`. Use `professional` para conhecimentos profissionais informados e `learning` para estudos em andamento. Não atribua níveis arbitrários.
 - **Formação:** edite `src/app/data/education.ts`.
 - **Informações pessoais:** o nome, resumo e links sociais estão em `src/app/app.html`; o endereço de contato está na seção de contato do mesmo arquivo. Atualize esses dados apenas com informações confirmadas.
